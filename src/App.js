@@ -17,8 +17,9 @@ function App() {
   const {getUser, user} = useContext(userContext)
 
   useEffect(()=>{
+    if(!user)
     getUser()
-  },[user])
+  },[getUser])
   return (
     <div >
       <Router>
