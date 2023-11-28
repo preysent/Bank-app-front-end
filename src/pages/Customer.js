@@ -12,7 +12,7 @@ const Customer = () => {
 
   useEffect(() => {
     getUser()
-  }, [])
+  }, [getUser])
 
 
   return (

@@ -23,7 +23,7 @@ const UserTable = ({data}) => {
                         <td className="px-4 py-3">{i+1}</td>
                         <td className="px-4 py-3">{val.username}</td>
                         <td className="px-4 py-3">{val.email}</td>
-                        <td className="px-4 py-3 text-lg text-gray-900">{accid && accid.balance || 0 }</td>
+                        <td className="px-4 py-3 text-lg text-gray-900">{accid && accid.balance }</td>
                         <td className="w-10 text-center">
                             <CostHistory txt="more" data={val}></CostHistory>
                         </td>

@@ -1,5 +1,4 @@
-import { useState, useContext } from "react"
-import userContext from "../Context/userContext"
+import { useState } from "react"
 import Table from "./Table"
 
 const CostHistory = (props) => {

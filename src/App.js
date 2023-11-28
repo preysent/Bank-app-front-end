@@ -5,8 +5,7 @@ import Customer from './pages/Customer'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import { useContext, useEffect } from 'react';
 import userContext from './Context/userContext';
@@ -19,7 +18,7 @@ function App() {
 
   useEffect(()=>{
     getUser()
-  },[])
+  },[getUser])
   return (
     <div >
       <Router>

@@ -63,7 +63,7 @@ const UserContext = ({ children }) => {
   }
 
   const transition = async ({ amount, action }) => {
-    const res = await fetch("https://bank-app-iota-gilt.vercel.app/api/transition", {
+    await fetch("https://bank-app-iota-gilt.vercel.app/api/transition", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
