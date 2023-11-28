@@ -18,7 +18,7 @@ function App() {
 
   useEffect(()=>{
     getUser()
-  },[])
+  },[user])
   return (
     <div >
       <Router>
