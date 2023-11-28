@@ -17,7 +17,6 @@ function App() {
   const {getUser, user} = useContext(userContext)
 
   useEffect(()=>{
-    if(!user)
     getUser()
   },[getUser])
   return (

@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 const Home = ({ user }) => {
     const history = useHistory()
     if (user.role==="customer") history.push('/customer')
-    if (user.role==="banker") history.push('/banker')
+    else if (user.role==="banker") history.push('/banker')
     return (
         <>
             <section className="text-gray-600 body-font min-h-screen flex ">
