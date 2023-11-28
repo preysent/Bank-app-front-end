@@ -80,6 +80,7 @@ const UserContext = ({ children }) => {
     localStorage.clear()
     setToken("")
     setUser({})
+    setAccount({})
   }
 
 
