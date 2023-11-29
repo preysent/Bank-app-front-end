@@ -25,7 +25,7 @@ const CostHistory = (props) => {
             <div className={`fixed bottom-0 left-0 w-screen h-screen p-2 bg-opacity-40 bg-black flex  justify-center items-center gap-4 flex-col ${(flg) ? 'hidden' : ''} z-10 transition-all`}>
 
 
-                <div className="flex top-0 left-0  w-auto p-10 text-base  flex-col bg-white p-4 min-h-[30rem] rounded-md gap-2">
+                <div className="flex top-0 left-0  w-auto max-w-[100vw] p-10 text-base  flex-col bg-white p-4 min-h-[30rem] rounded-md gap-2">
 
                     <div onClick={toggleSlide} className='w-10 h-8  flex items-center justify-center rounded-full cursor-pointer bg-white ml-auto '>
                         X

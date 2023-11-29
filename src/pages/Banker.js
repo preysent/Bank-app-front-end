@@ -31,7 +31,7 @@ const Banker = () => {
           {/* <div className="lg:w-2/3 w-full mx-auto overflow-auto">
             <Table data={account.transactions}/>
           </div> */}
-          <div className="lg:w-fit w-full mx-auto overflow-auto">
+          <div className="lg:w-fit max-w-screen w-full mx-auto overflow-auto">
            {banker.length && <UserTable data={banker} />}
           </div>
 

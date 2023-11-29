@@ -1,7 +1,7 @@
 
 const Table = ({data}) => {
     return (
-        <>
+        <div className="overflow-x-scroll w-full ">
 
             <table className="table-auto w-full text-left whitespace-no-wrap">
                 <thead>
@@ -22,21 +22,17 @@ const Table = ({data}) => {
                         <td className="px-4 py-3">₹{val.amount}</td>
                         <td className="px-4 py-3">{val.type}</td>
                         <td className="px-4 py-3 text-lg text-gray-900">{val.date}</td>
-                        <td className="w-10 text-center">
+                        <td className="w-10 text-center px-3">
                             <div className= {`w-4 h-4 rounded-full bg-${(val.type==="deposit")?"green":"red"}-500`} ></div>
                         </td>
                     </tr>
-                    }) }
-
+                    }) }                
                     
-                    
-
-
-                    
+                   
                 </tbody>
             </table>
 
-        </>
+        </div>
     )
 }
 

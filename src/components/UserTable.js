@@ -2,9 +2,9 @@ import CostHistory from "./CostHistory"
 
 const UserTable = ({data}) => {
     return (
-        <>
+        <div className="overflow-x-scroll">
 
-            <table className="table-auto w-full text-left whitespace-no-wrap">
+            <table className="table-auto w-fit text-left whitespace-no-wrap">
                 <thead>
                     <tr>
                         <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">index</th>
@@ -38,7 +38,7 @@ const UserTable = ({data}) => {
                 </tbody>
             </table>
 
-        </>
+        </div>
     )
 }
 
