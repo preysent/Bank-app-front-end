@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import Login from '../components/Login'
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import userContext from '../Context/userContext'
 
-const Home = ({ user }) => {
+const Home = () => {
     const history = useHistory()
-    if (user.role==="customer") history.push('/customer')
-    else if (user.role==="banker") history.push('/banker')
+    const { getUser, user } = useContext(userContext)
+
+    if (user.role === "customer") history.push('/customer')
+    else if (user.role === "banker") history.push('/banker')
+
+    useEffect(() => {
+        getUser()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     return (
         <>
             <section className="text-gray-600 body-font min-h-screen flex ">
@@ -16,8 +24,8 @@ const Home = ({ user }) => {
                         <h2 className="text-3xl font-bold mb-6">Login</h2>
                         <Login role="customer" />
 
-                        <Link to="/BankerLogin" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">become a banker
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <Link to="/BankerLogin" className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">become a banker
+                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
                         </Link>

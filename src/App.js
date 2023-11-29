@@ -7,18 +7,12 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { useContext, useEffect } from 'react';
-import userContext from './Context/userContext';
 import BankerLogin from './pages/BankerLogin';
 import Nanbar from './components/Nanbar';
 
 function App() {
 
-  const {getUser, user} = useContext(userContext)
 
-  useEffect(()=>{
-    getUser()
-  },[getUser])
   return (
     <div >
       <Router>
@@ -34,7 +28,7 @@ function App() {
             <BankerLogin/>
           </Route>
           <Route path="/">
-            <Home user= {user}/>
+            <Home />
           </Route>
         </Switch>
         

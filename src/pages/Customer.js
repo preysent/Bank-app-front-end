@@ -5,15 +5,15 @@ import { useHistory } from "react-router-dom";
 import Table from '../components/Table';
 
 const Customer = () => {
-  const history = useHistory()
+  const history = useHistory();
 
-  const { user, Token, getUser, account } = useContext(userContext)
-  if (!Token) history.push('/')
+  const { user, Token, getUser, account } = useContext(userContext);
+  if (!Token) history.push('/');
 
   useEffect(() => {
-    getUser()
-  }, [getUser])
-
+    getUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     user && <>
@@ -31,9 +31,8 @@ const Customer = () => {
 
           </div>
 
-
           <div className="lg:w-2/3 w-full mx-auto overflow-auto">
-            {account.transactions && <Table data =  {account.transactions}/>}
+            {account.transactions && <Table data={account.transactions} />}
           </div>
 
         </div>

@@ -5,23 +5,27 @@ const UserContext = ({ children }) => {
 
   const [user, setUser] = useState({})
   const [Token, setToken] = useState(localStorage.getItem('authToken'))
-  const [account, setAccount] = useState({})
+  const [account, setAccount] = useState({ transactions: [] })
   const [banker, setBanker] = useState([])
 
 
-  const getUser = async () => {
-
+  const getUser = async (authToken) => {
+    const token = authToken || Token
+    console.log(token)
     const res = await fetch("https://bank-app-iota-gilt.vercel.app/api/user", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "authToken": `${Token}`
+        "authToken": `${token}`
       }
     })
 
-    const newUser = await res.json()
-    setUser(newUser)
-    setAccount(newUser.accid)
+    const data = await res.json()
+    if (data.login===false) { }
+    else {
+      setUser(data)
+      setAccount(data.accid)
+    }
   }
 
 
@@ -48,11 +52,13 @@ const UserContext = ({ children }) => {
       body: JSON.stringify({ username, email, password, role })
     })
 
-    const { authToken } = await res.json()
+    const { authToken, error } = await res.json()
+
+    if (error) return 0
 
     setToken(authToken)
     localStorage.setItem("authToken", authToken)
-    getUser()
+    getUser(authToken)
 
     if (role === "customer") return 1
     else {
@@ -76,16 +82,19 @@ const UserContext = ({ children }) => {
 
   }
 
-  const logout = ()=>{
+  const logout = async () => {
     localStorage.clear()
     setToken("")
     setUser({})
     setAccount({})
+    // await setTimeout(()=>{
+    //   return
+    // },50)
   }
 
 
   return (
-    <userContext.Provider value={{ user, loginUser, Token, getUser, account, transition, getAllUserInfo,banker, logout }}>
+    <userContext.Provider value={{ user, loginUser, Token, getUser, account, transition, getAllUserInfo, banker, logout }}>
       {children}
     </userContext.Provider>
   )
